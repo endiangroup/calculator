@@ -1,5 +1,58 @@
 @import '../styles-variables';
 
+#mobile-nav {
+
+	$size: 50px;
+
+	position: absolute;
+	z-index: 999;
+	color: white;
+    background-color: $dark !important;
+	right: 0.5em;
+	top: 0.5em;
+	width: $size;
+	height: $size;
+	text-align: center;
+	padding: 0;
+	line-height: $size;
+	box-shadow: 0 8px 10px -5px rgba(0,0,0,.2), 0 16px 24px 2px rgba(0,0,0,.14), 0 6px 30px 5px rgba(0,0,0,.12);
+
+	button {
+		font-size:  $size / 2 !important;
+
+		i {
+			line-height: $size;
+		}
+	}
+
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
+}
+
+#mobile-footer {
+
+	text-align: center;
+	margin-top: 2em;
+
+	h3 {
+		font-weight: bold;
+	}
+
+	button {
+		width: 100%;
+	}
+
+    a {
+      color: $dark-green !important;
+    }
+
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
+}
+
+
 mat-sidenav {
   padding: 3em;
   color: white !important;
@@ -19,10 +72,13 @@ mat-sidenav {
     line-height: 1.1em;
     margin-bottom: 0.5em;
   }
-
+  
   h1,
   h2 {
-    max-width: 25vw;
+      max-width: 65vw;
+	  @media screen and (min-width: 800px) {
+		max-width: 25vw;
+	  }
   }
 
   .cta {

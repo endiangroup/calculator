@@ -1,100 +1,108 @@
-import { Component, HostBinding } from '@angular/core';
-
+import { Component, HostBinding, ChangeDetectorRef } from '@angular/core';
+import {MediaMatcher} from '@angular/cdk/layout';
 import { routeAnimations } from '@app/core';
 import { environment as env } from '@env/environment';
 
 import {
-  NIGHT_MODE_THEME,
-  selectorSettings,
-  SettingsState,
-  ActionSettingsChangeAnimationsPageDisabled
+	NIGHT_MODE_THEME,
+	selectorSettings,
+	SettingsState,
+	ActionSettingsChangeAnimationsPageDisabled
 } from './settings';
 
 interface Package {
-  name: string;
-  desc: string;
-  cost: number;
-  highRate: number;
-  lowRate: number;
+	name: string;
+	desc: string;
+	cost: number;
+	highRate: number;
+	lowRate: number;
 }
 
 interface Packages {
-  [name: string]: Package;
+	[name: string]: Package;
 }
 
 var packages: Packages = {
-  solo: {
-    name: 'Solo Talent',
-    desc:
-      'A dynamic and highly experienced recruitment specialist will come to work with you in-house, absorb your work culture, review CVs, pre-interview potential candidates, and generally take the hiring strain for as long as you need. You lucky devil.',
-    cost: 16000,
-    highRate: 5,
-    lowRate: 2
-  },
-  team: {
-    name: 'Duo Talent',
-    desc:
-      'A well-oiled (not lierally) superteam of two highly experienced recruitment specialists will come to work with you in-house, absorb your work culture, review CVs, pre-interview potential candidates, and generally take the hiring strain for as long as you need. Available with or without high-fives as the hires roll in.',
-    cost: 24000,
-    highRate: 10,
-    lowRate: 7
-  }
+	solo: {
+		name: 'Solo Talent',
+		desc:
+		'A dynamic and highly experienced recruitment specialist will come to work with you in-house, absorb your work culture, review CVs, pre-interview potential candidates, and generally take the hiring strain for as long as you need. You lucky devil.',
+		cost: 16000,
+		highRate: 5,
+		lowRate: 2
+	},
+	team: {
+		name: 'Duo Talent',
+		desc:
+		'A well-oiled (not lierally) superteam of two highly experienced recruitment specialists will come to work with you in-house, absorb your work culture, review CVs, pre-interview potential candidates, and generally take the hiring strain for as long as you need. Available with or without high-fives as the hires roll in.',
+		cost: 24000,
+		highRate: 10,
+		lowRate: 7
+	}
 };
 
 @Component({
-  selector: 'calculator-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss'],
-  animations: [routeAnimations]
+	selector: 'calculator-root',
+	templateUrl: './app.component.html',
+	styleUrls: ['./app.component.scss'],
+	animations: [routeAnimations]
 })
 export class AppComponent {
-  @HostBinding('class') componentCssClass;
+	@HostBinding('class') componentCssClass;
+	mobileQuery: MediaQueryList;
 
-  numberOfMonths = 3;
-  numberOfHires = 7;
-  actualMonths = 0;
-  cost = 16000;
-  salaryTotal = undefined;
-  recruiterCost = 0;
-  savings = 0;
-  savingsPercent = 0;
+	numberOfMonths = 3;
+	numberOfHires = 7;
+	actualMonths = 0;
+	cost = 16000;
+	salaryTotal = undefined;
+	recruiterCost = 0;
+	savings = 0;
+	savingsPercent = 0;
 
-  yourPackage: Package = undefined;
+	yourPackage: Package = undefined;
 
-  constructor() {
-    this.componentCssClass = 'default-theme';
-    this.onChange();
-  }
+	private _mobileQueryListener: () => void;
 
-  onChange() {
-    var found: Package = null;
+	constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher) {
+		this.componentCssClass = 'default-theme';
 
-    for (const k in packages) {
-      var avgRate = Math.ceil((packages[k].lowRate + packages[k].highRate) / 2);
+		this.mobileQuery = media.matchMedia('(max-width: 800px)');
+		this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+		this.mobileQuery.addListener(this._mobileQueryListener);
 
-      if (avgRate * this.numberOfMonths >= this.numberOfHires) {
-        if (!found || packages[k].lowRate < found.lowRate) {
-          found = packages[k];
-        }
-      }
-    }
+		this.onChange();
+	}
 
-    this.yourPackage = found;
-    this.actualMonths = Math.ceil(
-      this.numberOfHires / this.yourPackage.lowRate
-    );
+	onChange() {
+		var found: Package = null;
 
-    if (this.actualMonths > this.numberOfMonths) {
-      this.actualMonths = this.numberOfMonths;
-    }
+		for (const k in packages) {
+			var avgRate = Math.ceil((packages[k].lowRate + packages[k].highRate) / 2);
 
-    if (this.actualMonths < 3) {
-      this.actualMonths = 3;
-    }
+			if (avgRate * this.numberOfMonths >= this.numberOfHires) {
+				if (!found || packages[k].lowRate < found.lowRate) {
+					found = packages[k];
+				}
+			}
+		}
 
-    this.cost = this.actualMonths * this.yourPackage.cost;
-    this.recruiterCost = this.salaryTotal * 1000 * 0.2;
-    this.savings = this.recruiterCost - this.cost;
-    this.savingsPercent = (1 - this.cost / this.recruiterCost) * 100;
-  }
+		this.yourPackage = found;
+		this.actualMonths = Math.ceil(
+			this.numberOfHires / this.yourPackage.lowRate
+		);
+
+		if (this.actualMonths > this.numberOfMonths) {
+			this.actualMonths = this.numberOfMonths;
+		}
+
+		if (this.actualMonths < 3) {
+			this.actualMonths = 3;
+		}
+
+		this.cost = this.actualMonths * this.yourPackage.cost;
+		this.recruiterCost = this.salaryTotal * 1000 * 0.2;
+		this.savings = this.recruiterCost - this.cost;
+		this.savingsPercent = (1 - this.cost / this.recruiterCost) * 100;
+	}
 }

@@ -1,5 +1,12 @@
+<div id="mobile-nav">
+	<button mat-icon-button (click)="snav.toggle()">
+		<i class="fas fa-bars"></i>
+	</button>
+</div>
+
 <mat-sidenav-container class="example-container" fullscreen>
-  <mat-sidenav mode="side" opened>
+  <mat-sidenav mode="over" [opened]="!mobileQuery.matches" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+                 [fixedInViewport]="mobileQuery.matches">
 	  <div class="logo">
 	  <img src="http://endian.io/img/logo.svg"  alt="Endian"/>
 	  </div>
@@ -78,6 +85,17 @@
 		</div>
 			  </mat-card-content>
 		  </mat-card>
+	</div>
+
+	<div id="mobile-footer">
+		<h3>Questions?</h3>
+			<p>	
+				<a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
+					<button mat-raised-button>Schedule a meeting</button>		
+				</a>
+			</p>
+			<p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
+		
 	</div>
   </mat-sidenav-content>
 </mat-sidenav-container>
