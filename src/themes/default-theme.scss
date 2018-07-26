@@ -1,0 +1,9 @@
+$calculator-primary: mat-palette($mat-indigo, 800, 300, 900);
+$calculator-accent: mat-palette($mat-light-blue);
+$calculator-warn: mat-palette($mat-pink, 600);
+
+$calculator-theme: mat-light-theme(
+  $calculator-primary,
+  $calculator-accent,
+  $calculator-warn
+);

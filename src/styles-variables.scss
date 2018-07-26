@@ -1,0 +1,26 @@
+$toolbar-breakpoint: 600px;
+
+$fa-font-path: '../node_modules/@fortawesome/fontawesome-free-webfonts/webfonts';
+
+$link-hover-decoration: none;
+
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px
+);
+
+$dark: #46565f;
+$darker: #1c1c1c;
+$light: #eee;
+$callout: #d14;
+
+$red:        #DF1F1B;
+$orange:     #EA7D1A;
+$yellow:     #FFCD03;
+$green:      #81B725;
+$dark-green: #079239;
+$blue:       #3F95D1;
+

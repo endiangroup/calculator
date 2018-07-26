@@ -1,0 +1,102 @@
+@import '../styles-variables';
+
+mat-sidenav {
+  padding: 3em;
+  color: white !important;
+  height: 100%;
+
+  background-color: $dark !important;
+
+  .logo {
+    margin-bottom: 2em;
+    img {
+      width: 6em;
+    }
+  }
+
+  h1 {
+    font-size: 4em;
+    line-height: 1.1em;
+    margin-bottom: 0.5em;
+  }
+
+  h1,
+  h2 {
+    max-width: 25vw;
+  }
+}
+
+mat-sidenav-content {
+  padding: 2em;
+
+  mat-card {
+    margin-bottom: 1em;
+  }
+
+  .mat-slider-horizontal {
+    width: 100%;
+  }
+
+  h3,
+  h4 {
+    font-weight: normal;
+
+    strong {
+      color: $dark-green;
+    }
+  }
+
+  h4 {
+    margin-top: 1em;
+    span {
+      font-size: 0.9em;
+      background-color: $light;
+      padding: 0.25em 0.75em;
+      border-radius: 0.75em;
+    }
+  }
+
+  p {
+    .cost,
+    .percentage {
+      color: $dark-green;
+      font-weight: bold;
+    }
+
+    .bad-cost {
+      color: $red;
+    }
+  }
+
+  .investment {
+    h3 {
+      font-weight: bold;
+
+      &.what-you-get {
+        margin-top: 1em;
+      }
+    }
+
+    .total {
+      font-size: 2em;
+
+      span.cost {
+        color: $dark-green;
+        font-weight: bold;
+      }
+    }
+  }
+
+  .need-a-team {
+    h3 {
+      font-weight: bold;
+    }
+  }
+
+  .even-faster {
+    padding: 0.5em;
+    color: $orange;
+    border: 1px solid $orange;
+    margin-bottom: 1em;
+  }
+}

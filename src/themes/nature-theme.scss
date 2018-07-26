@@ -1,0 +1,9 @@
+$calculator-nature-primary: mat-palette($mat-brown, 700, 300, 900);
+$calculator-nature-accent: mat-palette($mat-deep-purple, 300);
+$calculator-nature-warn: mat-palette($mat-red, 600);
+
+$calculator-nature-theme: mat-light-theme(
+  $calculator-nature-primary,
+  $calculator-nature-accent,
+  $calculator-nature-warn
+);

@@ -1,0 +1,9 @@
+$calculator-black-primary: mat-palette($mat-grey, 700, 300, 900);
+$calculator-black-accent: mat-palette($mat-blue-grey, 400);
+$calculator-black-warn: mat-palette($mat-red, 500);
+
+$calculator-black-theme: mat-dark-theme(
+  $calculator-black-primary,
+  $calculator-black-accent,
+  $calculator-black-warn
+);

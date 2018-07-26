@@ -1,0 +1,73 @@
+<mat-sidenav-container class="example-container" fullscreen>
+  <mat-sidenav mode="side" opened>
+	  <div class="logo">
+	  <img src="http://endian.io/img/logo.svg"  alt="Endian"/>
+	  </div>
+		  <h1>180 package cost calculator</h1>
+		<h2>find out how much you could save with this handy tool</h2>
+  </mat-sidenav>
+  <mat-sidenav-content>
+	  <div class="wrapper">
+		  <mat-card>
+			  <mat-card-content>
+		<h3>I want to hire <strong>{{numberOfHires}} people</strong></h3>
+		<mat-slider
+			min="7"
+			max="35"
+			step="1"
+			thumbLabel
+			tickInterval="1"
+			[(ngModel)]="numberOfHires"
+			(change)="onChange($event)"
+		>
+		</mat-slider>
+
+		<h3>Over <strong>{{numberOfMonths}} months</strong></h3>
+		<mat-slider
+			min="3"
+			max="24"
+			step="1"
+			thumbLabel
+			tickInterval="1"
+			[(ngModel)]="numberOfMonths"
+			(change)="onChange($event)"
+		>
+		</mat-slider>
+
+		<h4><span>optional</span> The total of all their annual salaries in the first year</h4>
+		<mat-form-field class="example-full-width">
+			<input matInput type="number" [(ngModel)]="salaryTotal" (change)="onChange($event)">
+		</mat-form-field>
+			  </mat-card-content>
+		  </mat-card>
+
+		  <mat-card>
+			  <mat-card-content>
+		<div class="investment" *ngIf="yourPackage">
+			<div class="even-faster" *ngIf="numberOfMonths != actualMonths">
+				<strong>Good news! We can get the job done in {{actualMonths}} months, so you save even more! FIXME: only show when minimum range exceeded, not average</strong>
+			</div>
+			<h3>The cost</h3>
+			<p class="total">
+				<span class="cost">{{cost | currency:'GBP':'symbol':'1.0-0'}}</span>
+				<span class="vat"> (plus VAT) in total</span>
+			</p>
+			<p> (which works out to <span class="cost">{{cost / actualMonths | currency:'GBP':'symbol':'1.0-0'}}</span> per month for {{actualMonths}} months) </p>
+			<p *ngIf="savings > 0">
+			A traditional recruiter would charge you <span class="bad-cost">{{this.recruiterCost | currency:'GBP':'symbol':'1.0-0'}}</span>. We'll save you <span class="cost">{{this.savings | currency:'GBP':'symbol':'1.0-0'}}</span>, or about <span class="percentage">{{this.savingsPercent | number:'1.0-0'}}%</span>.
+			</p>
+
+			<h3 class="what-you-get">What you get</h3>
+			<p>Our {{yourPackage.name}} package. FIXME: desc</p>
+		</div>
+
+		<div class="need-a-team" *ngIf="!yourPackage">
+			<h3>We're going to need a bigger boat!</h3>
+			<p>For a campaign of that size, you'll need a custom team. We can help with that too, please contact us for more information. FIXME</p>
+		</div>
+			  </mat-card-content>
+		  </mat-card>
+	</div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
