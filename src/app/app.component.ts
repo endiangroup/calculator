@@ -12,8 +12,10 @@ import {
 
 interface Package {
   name: string;
+  desc: string;
   cost: number;
-  rate: number;
+  highRate: number;
+  lowRate: number;
 }
 
 interface Packages {
@@ -22,14 +24,20 @@ interface Packages {
 
 var packages: Packages = {
   solo: {
-    name: 'Solo',
+    name: 'Solo Talent',
+    desc:
+      'A dynamic and highly experienced recruitment specialist will come to work with you in-house, absorb your work culture, review CVs, pre-interview potential candidates, and generally take the hiring strain for as long as you need. You lucky devil.',
     cost: 16000,
-    rate: 4
+    highRate: 5,
+    lowRate: 2
   },
   team: {
-    name: 'Team',
+    name: 'Duo Talent',
+    desc:
+      'A well-oiled (not lierally) superteam of two highly experienced recruitment specialists will come to work with you in-house, absorb your work culture, review CVs, pre-interview potential candidates, and generally take the hiring strain for as long as you need. Available with or without high-fives as the hires roll in.',
     cost: 24000,
-    rate: 8
+    highRate: 10,
+    lowRate: 7
   }
 };
 
@@ -46,7 +54,7 @@ export class AppComponent {
   numberOfHires = 7;
   actualMonths = 0;
   cost = 16000;
-  salaryTotal = 0;
+  salaryTotal = undefined;
   recruiterCost = 0;
   savings = 0;
   savingsPercent = 0;
@@ -62,22 +70,30 @@ export class AppComponent {
     var found: Package = null;
 
     for (const k in packages) {
-      if (packages[k].rate * this.numberOfMonths >= this.numberOfHires) {
-        if (!found || packages[k].rate < found.rate) {
+      var avgRate = Math.ceil((packages[k].lowRate + packages[k].highRate) / 2);
+
+      if (avgRate * this.numberOfMonths >= this.numberOfHires) {
+        if (!found || packages[k].lowRate < found.lowRate) {
           found = packages[k];
         }
       }
     }
 
     this.yourPackage = found;
-    this.actualMonths = Math.ceil(this.numberOfHires / this.yourPackage.rate);
+    this.actualMonths = Math.ceil(
+      this.numberOfHires / this.yourPackage.lowRate
+    );
+
+    if (this.actualMonths > this.numberOfMonths) {
+      this.actualMonths = this.numberOfMonths;
+    }
 
     if (this.actualMonths < 3) {
       this.actualMonths = 3;
     }
 
     this.cost = this.actualMonths * this.yourPackage.cost;
-    this.recruiterCost = this.salaryTotal * 0.2;
+    this.recruiterCost = this.salaryTotal * 1000 * 0.2;
     this.savings = this.recruiterCost - this.cost;
     this.savingsPercent = (1 - this.cost / this.recruiterCost) * 100;
   }

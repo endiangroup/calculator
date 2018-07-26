@@ -5,6 +5,15 @@
 	  </div>
 		  <h1>180 package cost calculator</h1>
 		<h2>find out how much you could save with this handy tool</h2>
+		<div class="cta">
+			<p>Any questions?</p>
+			<p>	
+				<a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
+					<button mat-raised-button>Schedule a meeting</button>		
+				</a>
+			</p>
+			<p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
+		</div>
   </mat-sidenav>
   <mat-sidenav-content>
 	  <div class="wrapper">
@@ -35,9 +44,11 @@
 		</mat-slider>
 
 		<h4><span>optional</span> The total of all their annual salaries in the first year</h4>
-		<mat-form-field class="example-full-width">
+		<mat-form-field hintLabel="In thousands, to save your 0 key">
 			<input matInput type="number" [(ngModel)]="salaryTotal" (change)="onChange($event)">
-		</mat-form-field>
+			<span matPrefix>£&nbsp;</span>
+			<span matSuffix>, 000</span>
+		  </mat-form-field>
 			  </mat-card-content>
 		  </mat-card>
 
@@ -45,25 +56,25 @@
 			  <mat-card-content>
 		<div class="investment" *ngIf="yourPackage">
 			<div class="even-faster" *ngIf="numberOfMonths != actualMonths">
-				<strong>Good news! We can get the job done in {{actualMonths}} months, so you save even more! FIXME: only show when minimum range exceeded, not average</strong>
+				<strong>Good news! Under normal circumstances, we can help you hire {{numberOfHires}} people in only <strong>{{actualMonths}} months</strong>, so you wouldn't need to pay for the full {{numberOfMonths}}.</strong>
 			</div>
 			<h3>The cost</h3>
 			<p class="total">
 				<span class="cost">{{cost | currency:'GBP':'symbol':'1.0-0'}}</span>
 				<span class="vat"> (plus VAT) in total</span>
 			</p>
-			<p> (which works out to <span class="cost">{{cost / actualMonths | currency:'GBP':'symbol':'1.0-0'}}</span> per month for {{actualMonths}} months) </p>
+			<p> (which works out to <span class="cost">{{cost / actualMonths | currency:'GBP':'symbol':'1.0-0'}}</span> per month for <span class="cost">{{actualMonths}} months</span>) </p>
 			<p *ngIf="savings > 0">
 			A traditional recruiter would charge you <span class="bad-cost">{{this.recruiterCost | currency:'GBP':'symbol':'1.0-0'}}</span>. We'll save you <span class="cost">{{this.savings | currency:'GBP':'symbol':'1.0-0'}}</span>, or about <span class="percentage">{{this.savingsPercent | number:'1.0-0'}}%</span>.
 			</p>
 
 			<h3 class="what-you-get">What you get</h3>
-			<p>Our {{yourPackage.name}} package. FIXME: desc</p>
+			<p>Our <span class="cost">{{yourPackage.name}}</span> package: {{yourPackage.desc}}</p>
 		</div>
 
 		<div class="need-a-team" *ngIf="!yourPackage">
 			<h3>We're going to need a bigger boat!</h3>
-			<p>For a campaign of that size, you'll need a custom team. We can help with that too, please contact us for more information. FIXME</p>
+			<p>For a campaign of that size, you'll need a custom team. We can help with that too, please contact us for more information.</p>
 		</div>
 			  </mat-card-content>
 		  </mat-card>
