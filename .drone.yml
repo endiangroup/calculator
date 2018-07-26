@@ -10,6 +10,7 @@ pipeline:
     region: eu-west-2
     acl: public-read
     encryption: AES256
-    bucket: calculator.recruitng.endian.io
+    bucket: endian.io
+    target: /the-180/calculator
     source: dist/**/*
     strip_prefix: dist
