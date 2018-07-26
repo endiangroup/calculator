@@ -27,7 +27,7 @@
 			thumbLabel
 			tickInterval="1"
 			[(ngModel)]="numberOfHires"
-			(change)="onChange($event)"
+			(change)="onChange()"
 		>
 		</mat-slider>
 
@@ -39,13 +39,13 @@
 			thumbLabel
 			tickInterval="1"
 			[(ngModel)]="numberOfMonths"
-			(change)="onChange($event)"
+			(change)="onChange()"
 		>
 		</mat-slider>
 
 		<h4><span>optional</span> The total of all their annual salaries in the first year</h4>
 		<mat-form-field hintLabel="In thousands, to save your 0 key">
-			<input matInput type="number" [(ngModel)]="salaryTotal" (change)="onChange($event)">
+			<input matInput type="number" [(ngModel)]="salaryTotal" (change)="onChange()">
 			<span matPrefix>£&nbsp;</span>
 			<span matSuffix>, 000</span>
 		  </mat-form-field>
