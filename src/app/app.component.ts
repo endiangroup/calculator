@@ -43,7 +43,7 @@ export class AppComponent {
   @HostBinding('class') componentCssClass;
 
   numberOfMonths = 3;
-  numberOfHires = 6;
+  numberOfHires = 7;
   actualMonths = 0;
   cost = 16000;
   salaryTotal = 0;
