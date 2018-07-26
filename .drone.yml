@@ -2,12 +2,12 @@ pipeline:
   build:
     image: node:10
     commands:
-      - npm install
+      - npm ci
       - npm run build
 
   upload-to-s3:
     image: plugins/s3
-    region: us-west-2
+    region: eu-west-2
     acl: public-read
     encryption: AES256
     bucket: calculator.recruitng.endian.io
