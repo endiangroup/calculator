@@ -9,7 +9,7 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "watch": "ng test --configuration=test --browsers ChromeHeadless --watch",
-    "build:prod": "ng build --prod --build-optimizer --vendor-chunk --common-chunk --base-href=\"/the-180/calculator/\" --deploy-url \"/the-180/calculator/\"",
+    "build:prod": "ng build --prod --build-optimizer --vendor-chunk --common-chunk --base-href=\"https://endian.io/the-180/calculator/\" --deploy-url \"/the-180/calculator/\"",
     "clean": "rimraf ./dist/",
     "server": "cd dist && http-server",
     "prod": "npm run clean && npm run build:prod && npm run server",
