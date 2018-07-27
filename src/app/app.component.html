@@ -5,22 +5,27 @@
 </div>
 
 <mat-sidenav-container class="example-container" fullscreen>
-  <mat-sidenav mode="over" [opened]="!mobileQuery.matches" #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+  <mat-sidenav mode="over" opened #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
                  [fixedInViewport]="mobileQuery.matches">
 	  <div class="logo">
 	  <img src="//endian.io/img/logo.svg"  alt="Endian"/>
 	  </div>
 		  <h1>180 package cost calculator</h1>
-		<h2>find out how much you could save with this handy tool</h2>
-		<div class="cta">
-			<p>Any questions?</p>
-			<p>	
-				<a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
-					<button mat-raised-button>Schedule a meeting</button>		
-				</a>
-			</p>
-			<p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
+		  <h2>find out how much you could save with this handy tool</h2>
+		  <div class="cta">
+			  <p>Any questions?</p>
+			  <p>	
+				  <a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
+					  <button mat-raised-button>Schedule a meeting</button>		
+				  </a>
+			  </p>
+			  <p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
 		</div>
+	 <div class="get-started">
+		<button mat-raised-button (click)="snav.toggle()">
+			Let's go &raquo;
+		</button>
+	 </div>
   </mat-sidenav>
   <mat-sidenav-content>
 	  <div class="wrapper">
