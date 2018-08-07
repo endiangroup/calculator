@@ -62,6 +62,13 @@
 			<span matSuffix>, 000</span>
 		  </mat-form-field>
 			  </mat-card-content>
+    <mat-card-footer>
+      <h4><span>optional</span> ...and my current recruiter charges me</h4>
+      <mat-form-field hintLabel="of first year salary per hire">
+        <input matInput class="align-right" type="number" step="5" min="0" max="100" [(ngModel)]="recruiterFee" (ngModelChange)="onChange()">
+        <span matSuffix>%</span>
+        </mat-form-field>
+    </mat-card-footer>
 		  </mat-card>
 
 		  <mat-card>

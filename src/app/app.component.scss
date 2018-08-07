@@ -119,6 +119,21 @@ mat-sidenav-content {
     margin-bottom: 1em;
   }
 
+  mat-card-footer {
+    font-size: 14px;
+    padding: 5px 24px 16px 24px;
+    background: $light;
+    h4 {
+      margin-top: 1em;
+      span {
+        font-size: 0.9em;
+        background-color: white;
+        padding: 0.25em 0.75em;
+        border-radius: 0.75em;
+      }
+    }
+  }
+
   .mat-slider-horizontal {
     width: 100%;
   }

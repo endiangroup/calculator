@@ -59,6 +59,7 @@ export class AppComponent {
   recruiterCost = 0;
   savings = 0;
   savingsPercent = 0;
+  recruiterFee = 20;
 
   yourPackage: Package = undefined;
 
@@ -101,7 +102,7 @@ export class AppComponent {
     }
 
     this.cost = this.actualMonths * this.yourPackage.cost;
-    this.recruiterCost = this.salaryTotal * 1000 * 0.2;
+    this.recruiterCost = this.salaryTotal * 1000 * (this.recruiterFee/100);
     this.savings = this.recruiterCost - this.cost;
     this.savingsPercent = (1 - this.cost / this.recruiterCost) * 100;
   }
