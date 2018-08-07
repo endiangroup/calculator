@@ -70,14 +70,14 @@
 			<div class="even-faster" *ngIf="numberOfMonths != actualMonths">
 				<strong>Good news! Under normal circumstances, we can help you hire {{numberOfHires}} people in only <strong>{{actualMonths}} months</strong>, so you wouldn't need to pay for the full {{numberOfMonths}}.</strong>
 			</div>
-			<h3>The cost</h3>
-			<p class="total">
+			<h3>Your estimated price</h3>
+			<p class="total no-margin">
 				<span class="cost">{{cost | currency:'GBP':'symbol':'1.0-0'}}</span>
 				<span class="vat"> (plus VAT) in total</span>
 			</p>
 			<p> (which works out to <span class="cost">{{cost / actualMonths | currency:'GBP':'symbol':'1.0-0'}}</span> per month for <span class="cost">{{actualMonths}} months</span>) </p>
 			<p *ngIf="savings > 0">
-			A traditional recruiter would charge you <span class="bad-cost">{{this.recruiterCost | currency:'GBP':'symbol':'1.0-0'}}</span>. We'll save you <span class="cost">{{this.savings | currency:'GBP':'symbol':'1.0-0'}}</span>, or about <span class="percentage">{{this.savingsPercent | number:'1.0-0'}}%</span>.
+			A traditional recruiter would charge you <span class="bad-cost">{{this.recruiterCost | currency:'GBP':'symbol':'1.0-0'}}</span>. We could be saving you <span class="cost">{{this.savings | currency:'GBP':'symbol':'1.0-0'}}</span>, or about <span class="percentage">{{this.savingsPercent | number:'1.0-0'}}%</span>.
 			</p>
 
 			<h3 class="what-you-get">What you get</h3>
