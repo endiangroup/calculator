@@ -55,7 +55,7 @@ export class AppComponent {
   numberOfHires = 7;
   actualMonths = 0;
   cost = 16000;
-  salaryTotal = undefined;
+  salaryTotal = 300;
   recruiterCost = 0;
   savings = 0;
   savingsPercent = 0;

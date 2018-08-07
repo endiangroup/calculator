@@ -55,9 +55,9 @@
 		>
 		</mat-slider>
 
-		<h4><span>optional</span> The total of all their annual salaries in the first year</h4>
+    <h4><span>optional</span> ...with total first year salaries for all {{numberOfHires}} people of</h4>
 		<mat-form-field hintLabel="In thousands, to save your 0 key">
-			<input matInput type="number" [(ngModel)]="salaryTotal" (change)="onChange()">
+			<input matInput class="align-right" type="number" step="10" min="0" max="100000" [(ngModel)]="salaryTotal" (ngModelChange)="onChange()">
 			<span matPrefix>£&nbsp;</span>
 			<span matSuffix>, 000</span>
 		  </mat-form-field>
