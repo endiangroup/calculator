@@ -5,110 +5,110 @@
 </div>
 
 <mat-sidenav-container class="example-container" fullscreen>
-  <mat-sidenav mode="over" opened #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
-                 [fixedInViewport]="mobileQuery.matches">
-	  <div class="logo">
-	  <img src="//endian.io/img/logo.svg"  alt="Endian"/>
-	  </div>
-		  <h1>180 package cost calculator</h1>
-		  <h2>find out how much you could save with this handy tool</h2>
-		  <div class="cta">
-			  <p>Any questions?</p>
-			  <p>	
-				  <a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
-					  <button mat-raised-button>Schedule a meeting</button>		
-				  </a>
-			  </p>
-			  <p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
+	<mat-sidenav mode="over" opened #snav [mode]="mobileQuery.matches ? 'over' : 'side'"
+		[fixedInViewport]="mobileQuery.matches">
+		<div class="logo">
+			<img src="//endian.io/img/logo.svg"  alt="Endian"/>
 		</div>
-	 <div class="get-started">
-		<button mat-raised-button (click)="snav.toggle()">
-			Let's go &raquo;
-		</button>
-	 </div>
-  </mat-sidenav>
-  <mat-sidenav-content>
-	  <div class="wrapper">
-		  <mat-card>
-			  <mat-card-content>
-		<h3>I want to hire <strong>{{numberOfHires}} people</strong></h3>
-		<mat-slider
-			min="7"
-			max="35"
-			step="1"
-			thumbLabel
-			tickInterval="1"
-			[(ngModel)]="numberOfHires"
-			(change)="onChange()"
-		>
-		</mat-slider>
-
-		<h3>Over <strong>{{numberOfMonths}} months</strong></h3>
-		<mat-slider
-			min="3"
-			max="24"
-			step="1"
-			thumbLabel
-			tickInterval="1"
-			[(ngModel)]="numberOfMonths"
-			(change)="onChange()"
-		>
-		</mat-slider>
-
-    <h4><span>optional</span> ...with total first year salaries for all {{numberOfHires}} people of</h4>
-		<mat-form-field hintLabel="In thousands, to save your 0 key">
-			<input matInput class="align-right" type="number" step="10" min="0" max="100000" [(ngModel)]="salaryTotal" (ngModelChange)="onChange()">
-			<span matPrefix>£&nbsp;</span>
-			<span matSuffix>, 000</span>
-		  </mat-form-field>
-			  </mat-card-content>
-    <mat-card-footer>
-      <h4><span>optional</span> ...and my current recruiter charges me</h4>
-      <mat-form-field hintLabel="of first year salary per hire">
-        <input matInput class="align-right" type="number" step="5" min="0" max="100" [(ngModel)]="recruiterFee" (ngModelChange)="onChange()">
-        <span matSuffix>%</span>
-        </mat-form-field>
-    </mat-card-footer>
-		  </mat-card>
-
-		  <mat-card>
-			  <mat-card-content>
-		<div class="investment" *ngIf="yourPackage">
-			<div class="even-faster" *ngIf="numberOfMonths != actualMonths">
-				<strong>Good news! Under normal circumstances, we can help you hire {{numberOfHires}} people in only <strong>{{actualMonths}} months</strong>, so you wouldn't need to pay for the full {{numberOfMonths}}.</strong>
-			</div>
-			<h3>Your estimated price</h3>
-			<p class="total no-margin">
-				<span class="cost">{{cost | currency:'GBP':'symbol':'1.0-0'}}</span>
-				<span class="vat"> (plus VAT) in total</span>
-			</p>
-			<p> (which works out to <span class="cost">{{cost / actualMonths | currency:'GBP':'symbol':'1.0-0'}}</span> per month for <span class="cost">{{actualMonths}} months</span>) </p>
-			<p *ngIf="savings > 0">
-			A traditional recruiter would charge you <span class="bad-cost">{{this.recruiterCost | currency:'GBP':'symbol':'1.0-0'}}</span>. We could be saving you <span class="cost">{{this.savings | currency:'GBP':'symbol':'1.0-0'}}</span>, or about <span class="percentage">{{this.savingsPercent | number:'1.0-0'}}%</span>.
-			</p>
-
-			<h3 class="what-you-get">What you get</h3>
-			<p>Our <span class="cost">{{yourPackage.name}}</span> package: {{yourPackage.desc}}</p>
-		</div>
-
-		<div class="need-a-team" *ngIf="!yourPackage">
-			<h3>We're going to need a bigger boat!</h3>
-			<p>For a campaign of that size, you'll need a custom team. We can help with that too, please contact us for more information.</p>
-		</div>
-			  </mat-card-content>
-		  </mat-card>
-	</div>
-
-	<div id="mobile-footer">
-		<h3>Questions?</h3>
-			<p>	
+		<h1>180 package cost calculator</h1>
+		<h2>find out how much you could save with this handy tool</h2>
+		<div class="cta">
+			<p>Any questions?</p>
+			<p>
 				<a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
-					<button mat-raised-button>Schedule a meeting</button>		
+					<button mat-raised-button>Schedule a meeting</button>
 				</a>
 			</p>
 			<p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
-		
-	</div>
-  </mat-sidenav-content>
+		</div>
+		<div class="get-started">
+			<button mat-raised-button (click)="snav.toggle()">
+				Let's go &raquo;
+			</button>
+		</div>
+	</mat-sidenav>
+	<mat-sidenav-content>
+		<div class="wrapper">
+			<mat-card>
+				<mat-card-content>
+					<h3>I want to hire <strong>{{numberOfHires}} people</strong></h3>
+					<mat-slider
+						min="7"
+						max="35"
+						step="1"
+						thumbLabel
+						tickInterval="1"
+						[(ngModel)]="numberOfHires"
+						(change)="onChange()"
+						>
+					</mat-slider>
+
+					<h3>Over <strong>{{numberOfMonths}} months</strong></h3>
+					<mat-slider
+						min="3"
+						max="24"
+						step="1"
+						thumbLabel
+						tickInterval="1"
+						[(ngModel)]="numberOfMonths"
+						(change)="onChange()"
+						>
+					</mat-slider>
+
+					<h4><span>optional</span> ...with total first year salaries for all {{numberOfHires}} people of</h4>
+					<mat-form-field hintLabel="In thousands, to save your 0 key">
+						<input matInput class="align-right" type="number" step="10" min="0" max="100000" [(ngModel)]="salaryTotal" (ngModelChange)="onChange()">
+						<span matPrefix>£&nbsp;</span>
+						<span matSuffix>, 000</span>
+					</mat-form-field>
+				</mat-card-content>
+				<mat-card-footer>
+					<h4><span>optional</span> ...and my current recruiter charges me</h4>
+					<mat-form-field hintLabel="of first year salary per hire">
+						<input matInput class="align-right" type="number" step="5" min="0" max="100" [(ngModel)]="recruiterFee" (ngModelChange)="onChange()">
+						<span matSuffix>%</span>
+					</mat-form-field>
+				</mat-card-footer>
+			</mat-card>
+
+			<mat-card>
+				<mat-card-content>
+					<div class="investment" *ngIf="yourPackage">
+						<div class="even-faster" *ngIf="numberOfMonths != actualMonths">
+							<strong>Good news! Under normal circumstances, we can help you hire {{numberOfHires}} people in only <strong>{{actualMonths}} months</strong>, so you wouldn't need to pay for the full {{numberOfMonths}}.</strong>
+						</div>
+						<h3>Your estimated price</h3>
+						<p class="total no-margin">
+							<span class="cost">{{cost | currency:'GBP':'symbol':'1.0-0'}}</span>
+							<span class="vat"> (plus VAT) in total</span>
+						</p>
+						<p> (which works out to <span class="cost">{{cost / actualMonths | currency:'GBP':'symbol':'1.0-0'}}</span> per month for <span class="cost">{{actualMonths}} months</span>) </p>
+						<p *ngIf="savings > 0">
+							A traditional recruiter would charge you <span class="bad-cost">{{this.recruiterCost | currency:'GBP':'symbol':'1.0-0'}}</span>. We could be saving you <span class="cost">{{this.savings | currency:'GBP':'symbol':'1.0-0'}}</span>, or about <span class="percentage">{{this.savingsPercent | number:'1.0-0'}}%</span>.
+						</p>
+
+						<h3 class="what-you-get">What you get</h3>
+						<p>Our <span class="cost">{{yourPackage.name}}</span> package: {{yourPackage.desc}}</p>
+					</div>
+
+					<div class="need-a-team" *ngIf="!yourPackage">
+						<h3>We're going to need a bigger boat!</h3>
+						<p>For a campaign of that size, you'll need a custom team. We can help with that too, please contact us for more information.</p>
+					</div>
+				</mat-card-content>
+			</mat-card>
+		</div>
+
+		<div id="mobile-footer">
+			<h3>Questions?</h3>
+			<p>
+				<a href="https://calendar.google.com/calendar/selfsched?sstoken=UUJwWVF4VGtRT1ZUfGRlZmF1bHR8OGIwNWQ5MTEwYTM2YjlkMjZjM2YwN2MwYzQ4ZDIxNWU" target="_blank">
+					<button mat-raised-button>Schedule a meeting</button>
+				</a>
+			</p>
+			<p>or drop us a line at <a href="mailto:hello@endian.io">hello@endian.io</a>.</p>
+
+		</div>
+	</mat-sidenav-content>
 </mat-sidenav-container>
 
