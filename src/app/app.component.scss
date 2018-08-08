@@ -1,204 +1,211 @@
 @import '../styles-variables';
 
 #mobile-nav {
-  $size: 50px;
+	$size: 50px;
 
-  position: absolute;
-  z-index: 999;
-  color: white;
-  background-color: $dark !important;
-  right: 0.5em;
-  top: 0.5em;
-  width: $size;
-  height: $size;
-  text-align: center;
-  padding: 0;
-  line-height: $size;
-  box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
-    0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
+	position: absolute;
+	z-index: 999;
+	color: white;
+	background-color: $dark !important;
+	right: 0.5em;
+	top: 0.5em;
+	width: $size;
+	height: $size;
+	text-align: center;
+	padding: 0;
+	line-height: $size;
+	box-shadow: 0 8px 10px -5px rgba(0, 0, 0, 0.2),
+	0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12);
 
-  button {
-    font-size: $size / 2 !important;
+	button {
+		font-size: $size / 2 !important;
 
-    i {
-      line-height: $size;
-    }
-  }
+		i {
+			line-height: $size;
+		}
+	}
 
-  @media screen and (min-width: 800px) {
-    display: none;
-  }
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
 }
 
 #mobile-footer {
-  text-align: center;
-  margin-top: 2em;
+	text-align: center;
+	margin-top: 2em;
 
-  h3 {
-    font-weight: bold;
-  }
+	h3 {
+		font-weight: bold;
+	}
 
-  button {
-    width: 100%;
-  }
+	button {
+		width: 100%;
+	}
 
-  a {
-    color: $dark-green !important;
-  }
+	a {
+		color: $dark-green !important;
+	}
 
-  @media screen and (min-width: 800px) {
-    display: none;
-  }
+	@media screen and (min-width: 800px) {
+		display: none;
+	}
 }
 
 .align-right {
-  text-align: right;
+	text-align: right;
 }
 
 mat-sidenav {
-  padding: 3em;
-  color: white !important;
-  height: 100%;
+	padding: 3em;
+	color: white !important;
+	height: 100%;
 
-  background-color: $dark !important;
+	background-color: $dark !important;
 
-  .logo {
-    margin-bottom: 2em;
-    img {
-      width: 6em;
-    }
-  }
-
-  h1 {
-    font-size: 4em;
-    line-height: 1.1em;
-    margin-bottom: 0.5em;
-
-    @media screen and (max-width: 800px) {
-      font-size: 2em;
-    }
-  }
-
-  h1,
-  h2 {
-    max-width: 65vw;
-    @media screen and (min-width: 800px) {
-      max-width: 25vw;
-    }
-  }
-
-  .cta {
-    margin-top: 4em;
-
-	@media screen and (max-width: 800px) {
-	  display: none;
+	.logo {
+		margin-bottom: 2em;
+		img {
+			width: 6em;
+		}
 	}
 
-    a {
-      color: $orange !important;
-    }
-  }
+	h1 {
+		font-size: 4em;
+		line-height: 1.1em;
+		margin-bottom: 0.5em;
 
-  .get-started {
-	  margin-top: 4em;
+		@media screen and (max-width: 800px) {
+			font-size: 2em;
+		}
+	}
+
+	h1,
+	h2 {
+		max-width: 65vw;
+		@media screen and (min-width: 800px) {
+			max-width: 25vw;
+		}
+	}
+
+	.cta {
+		margin-top: 4em;
+
+		@media screen and (max-width: 800px) {
+			display: none;
+		}
+
+		a {
+			color: $orange !important;
+		}
+	}
+
+	.get-started {
+		margin-top: 4em;
 
 		@media screen and (min-width: 800px) {
-		  display: none;
+			display: none;
 		}
 
 		button {
 			width: 100%;
 		}
-  }
+	}
 }
 
 mat-sidenav-content {
-  padding: 2em;
+	padding: 2em;
 
-  mat-card {
-    margin-bottom: 1em;
-  }
+	mat-card {
+		margin-bottom: 1em;
+	}
 
-  mat-card-footer {
-    font-size: 14px;
-    padding: 5px 24px 16px 24px;
-    background: $light;
-    h4 {
-      margin-top: 1em;
-      span {
-        font-size: 0.9em;
-        background-color: white;
-        padding: 0.25em 0.75em;
-        border-radius: 0.75em;
-      }
-    }
-  }
+	mat-card-footer {
+		font-size: 14px;
+		padding: 5px 24px 16px 24px;
+		background: $light;
+		h4 {
+			margin-top: 1em;
+			span {
+				font-size: 0.9em;
+				background-color: white;
+				padding: 0.25em 0.75em;
+				border-radius: 0.75em;
+			}
+		}
+	}
 
-  .mat-slider-horizontal {
-    width: 100%;
-  }
+	.mat-slider-horizontal {
+		width: 100%;
+	}
 
-  h3,
-  h4 {
-    font-weight: normal;
+	h3,
+	h4 {
+		font-weight: normal;
 
-    strong {
-      color: $dark-green;
-    }
-  }
+		strong {
+			color: $dark-green;
+		}
+	}
 
-  h4 {
-    margin-top: 1em;
-    span {
-      font-size: 0.9em;
-      background-color: $light;
-      padding: 0.25em 0.75em;
-      border-radius: 0.75em;
-    }
-  }
+	h4 {
+		margin-top: 1em;
+		span {
+			font-size: 0.9em;
+			background-color: $light;
+			padding: 0.25em 0.75em;
+			border-radius: 0.75em;
+		}
+	}
 
-  p {
-    .cost,
-    .percentage {
-      color: $dark-green;
-      font-weight: bold;
-    }
+	p {
+		.cost,
+		.percentage {
+			color: $dark-green;
+			font-weight: bold;
+		}
 
-    .bad-cost {
-      color: $red;
-    }
-  }
+		.bad-cost {
+			color: $red;
+		}
+	}
 
-  .investment {
-    h3 {
-      font-weight: bold;
+	.investment {
+		h3 {
+			font-weight: bold;
 
-      &.what-you-get {
-        margin-top: 1em;
-      }
-    }
+			&.what-you-get {
+				margin-top: 1em;
+			}
+		}
 
-    .total {
-      font-size: 2em;
-      margin-bottom: 0;
+		.total {
+			font-size: 2em;
+			margin-bottom: 0;
 
-      span.cost {
-        color: $dark-green;
-        font-weight: bold;
-      }
-    }
-  }
+			span.cost {
+				color: $dark-green;
+				font-weight: bold;
+			}
+		}
+	}
 
-  .need-a-team {
-    h3 {
-      font-weight: bold;
-    }
-  }
+	.need-a-team {
+		h3 {
+			font-weight: bold;
+		}
+	}
 
-  .even-faster {
-    padding: 0.5em;
-    color: $orange;
-    border: 1px solid $orange;
-    margin-bottom: 1em;
-  }
+	.even-faster {
+		padding: 0.5em;
+		color: $orange;
+		border: 1px solid $orange;
+		margin-bottom: 1em;
+	}
+
+	#faqs {
+
+		h3, h4 {
+			font-weight: bold;
+		}
+	}
 }
