@@ -2,6 +2,7 @@ import { Component, HostBinding, ChangeDetectorRef } from '@angular/core';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { routeAnimations } from '@app/core';
 import { environment as env } from '@env/environment';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
 
 import {
   NIGHT_MODE_THEME,

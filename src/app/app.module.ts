@@ -17,6 +17,9 @@ import {
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
+import { Angulartics2Module } from 'angulartics2';
+import { Angulartics2GoogleTagManager } from 'angulartics2/gtm';
+
 @NgModule({
   imports: [
     // angular
@@ -35,7 +38,10 @@ import { AppComponent } from './app.component';
     MatSliderModule,
 
     // app
-    AppRoutingModule
+    AppRoutingModule,
+
+    // Google GTag
+    Angulartics2Module.forRoot([ Angulartics2GoogleTagManager ])
   ],
   declarations: [AppComponent],
   providers: [],
